@@ -1,0 +1,65 @@
+{
+ "mssv": "2A202603311",
+ "ten": "DuongQuocHuy",
+ "pool_version": "d04-k5-v2",
+ "cvat_user": "duonghuy1107",
+ "project": "d04-keypoint",
+ "persons": [
+  "000000308257.jpg",
+  "000000314154.jpg",
+  "000000455536.jpg",
+  "000000508269.jpg",
+  "000000525227.jpg",
+  "000000157271.jpg",
+  "000000183176.jpg",
+  "000000393909.jpg",
+  "000000043500.jpg",
+  "000000518966.jpg",
+  "000000106051.jpg",
+  "000000012552.jpg"
+ ],
+ "faces": [
+  "face_145751.jpg",
+  "face_232598.jpg",
+  "face_85624.jpg",
+  "face_415073.jpg",
+  "face_416730.jpg",
+  "face_81239.jpg",
+  "face_405456.jpg",
+  "face_333134.jpg"
+ ],
+ "tasks": {
+  "persons": {
+   "task_id": 13,
+   "job_id": 13,
+   "task_name": "persons-DuongQuocHuy"
+  },
+  "faces": {
+   "task_id": 14,
+   "job_id": 14,
+   "task_name": "faces-DuongQuocHuy"
+  },
+  "persons-extra": {
+   "task_id": 15,
+   "job_id": 15,
+   "task_name": "persons-extra-DuongQuocHuy"
+  },
+  "faces-extra": {
+   "task_id": 16,
+   "job_id": 16,
+   "task_name": "faces-extra-DuongQuocHuy"
+  }
+ },
+ "persons_extra": [
+  "000000254060.jpg",
+  "000000373426.jpg",
+  "000000517702.jpg"
+ ],
+ "faces_extra": [
+  "face_296417.jpg",
+  "face_300200.jpg",
+  "face_317330.jpg",
+  "face_379585.jpg",
+  "face_507166.jpg"
+ ]
+}
