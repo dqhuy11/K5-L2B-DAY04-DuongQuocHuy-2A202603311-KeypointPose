@@ -8,7 +8,7 @@ Dữ liệu: 12 ảnh người COCO 2017 (Lin et al., 2014) và 8 ảnh khuôn m
 - MSSV: 2A202603311
 - Email: duongquochuy1107@gmail.com
 - Link repository: https://github.com/dqhuy11/K5-L2B-DAY04-DuongQuocHuy-2A202603311-KeypointPose
-- Phiên bản CVAT (Help → About): [ĐIỀN, ví dụ v2.x.x]
+- Phiên bản CVAT (Help → About):
 - Máy: hệ điều hành Windows 11 · RAM 16 GB · chạy CVAT chế độ đầy đủ
 - Bộ ảnh (`src/exports/assignment.json` do `lab.py setup` tạo): có
 - Giờ bắt đầu: 16h30 12/11/2026
