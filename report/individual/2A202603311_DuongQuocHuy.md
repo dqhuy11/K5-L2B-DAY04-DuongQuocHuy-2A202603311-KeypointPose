@@ -48,11 +48,9 @@ Chi tiết số skeleton theo ảnh:
 
 Tổng cộng em gán 19 skeleton `person` trên 12 ảnh và 8 skeleton `face` trên 8 ảnh.
 
-- Số ảnh người đã xong ở mốc phút 105: [ĐIỀN] / 10
-- Thời gian thực tế (phút): CP1 [ĐIỀN] · CP2 [ĐIỀN] · CP3 [ĐIỀN]
-- Ảnh tốn thời gian nhất là ảnh nào, vì sao?
-
-[ĐIỀN: ví dụ 000000012552 (crowd, 3 người chồng lên nhau, trọng tài quay lưng, người bắt bóng ngồi xổm bị che nhiều khớp)]
+- Số ảnh người đã xong ở mốc phút 105: 10 / 10
+- Thời gian thực tế (phút): CP1 2h · CP2 1h · CP3 1h
+- Ảnh tốn thời gian nhất là ảnh 000000012552.jpg, vì 3 người chồng lên nhau, trọng tài quay lưng, người bắt bóng ngồi xổm bị che nhiều khớp.
 
 ## 3. Bảng ca khó (CP1, CP2)
 
@@ -60,7 +58,7 @@ Tổng cộng em gán 19 skeleton `person` trên 12 ảnh và 8 skeleton `face` 
 
 | Ảnh | Người / mặt | Điểm | Cờ đã chọn | Phân vân giữa | Lý do chọn |
 |---|---|---|---:|---|---|
-| | | | | | |
+|000000393909.jpg |người(người ôm chó) |left_knee |v=2 |v=2 và v=1 |Quần đen, chân duỗi thẳng nên khó thấy chỗ gối gập, ban đầu em định để v = 1. Nhưng đầu gối không bị vật nào che, chỉ tối và khó nhìn, mà khó nhìn không có nghĩa là bị che, nên em chọn v = 2. |
 | | | | | | |
 | | | | | | |
 
