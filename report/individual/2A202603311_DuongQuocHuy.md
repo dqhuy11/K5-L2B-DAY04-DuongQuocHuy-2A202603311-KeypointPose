@@ -156,7 +156,13 @@ Nguồn ảnh: COCO 2017.
 
 3. Nhãn của bạn đi vào model ở đâu? Chọn một lỗi bạn đã sửa và nói nó sẽ làm model học sai thế nào (heatmap, trọng số trong loss, hay bước lật ảnh):
 
-   ...
+  Nhãn của em đi vào model ở ba chỗ:
+
+   - **Heatmap:** mỗi điểm có `v > 0` được biến thành một đỉnh trên bản đồ nhiệt tại đúng tọa độ em gán. Model học cách dự đoán lại đỉnh đó, nên điểm đặt lệch hay sai tên thì model cũng học theo vị trí sai.
+   - **Trọng số trong loss:** cờ `v` quyết định điểm nào được tính vào loss. Điểm `v = 0` bị bỏ qua, điểm `v = 1` và `v = 2` được tính. Nếu một điểm đoán bừa mà vẫn để `v > 0`, model bị ép học theo một vị trí sai.
+   - **Bước lật ảnh:** khi huấn luyện, ảnh được lật ngang và tên `left_*` / `right_*` được đổi cho nhau. Nhãn đúng thì lật xong vẫn đúng; nhãn đã bị đổi trái/phải thì lật xong vẫn sai, số ví dụ sai tăng gấp đôi.
+
+   Lỗi em đã sửa là đổi trái/phải (`lr_swap`) ở người quay lưng trong ảnh `000000043500` và `000000518966`: mẫu skeleton của CVAT dựng theo người quay mặt nên các điểm `left_*` nằm sai sang bên phải ảnh, em phải đổi sang bên trái ảnh cho đúng bên trái của người đó → lỗi này đi vào **heatmap** và **bước lật ảnh** → nếu không sửa, model sẽ học nhầm bên trái với bên phải, nên khi dự đoán thì điểm `left_*` rơi vào khớp bên phải. Vì OKS so từng điểm theo đúng tên, các điểm bị đổi bên sẽ cách xa vị trí đúng, làm OKS và các chỉ số AP/AR tính từ OKS bị thấp.
 
 ## 8. Khó khăn và lỗi kỹ thuật
 
@@ -215,6 +221,4 @@ Em không làm B3.
 
 ## 9. Tài liệu tham khảo và công cụ AI đã dùng
 
-- Tài liệu của lab: `docs/GUIDELINE.md`, `docs/CVAT_CHEATSHEET.md`, `docs/COCO_KEYPOINTS.md`, `docs/HUONG_DAN_BANG_HINH.md`.
-- Lin, T.-Y. et al. (2014). *Microsoft COCO: Common Objects in Context*. ECCV.
-- Công cụ AI: Claude (Anthropic). Em dùng để hỏi các bước làm sau khi gán nhãn (export, nộp bài), giải thích kết quả `check_submission.py` và soạn khung báo cáo các mục 0, 1, 2, 5, 6, 8, 9. Các mục 3, 4, 7 em tự viết dựa trên job của mình.
+Công cụ AI: Claude tra cứu khái niệm (heatmap, loss, lật ảnh, OKS, ảnh hồng ngoại)
