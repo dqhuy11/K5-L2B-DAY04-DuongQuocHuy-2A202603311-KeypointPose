@@ -31,12 +31,12 @@ Em rê chuột vào đúng điểm cần đổi rồi bấm `Q` để bật `occ
 
 | Nhóm ảnh | Số ảnh | Số skeleton đã gán | Số người dưới 60 px (không gán) | Số poster / gương / màn hình bỏ qua | Thời gian (phút) |
 |---|---:|---:|---:|---:|---:|
-| `easy` | 5 | 5 | [ĐIỀN] | [ĐIỀN] | [ĐIỀN] |
-| `occluded` | 3 | 5 | [ĐIỀN] | [ĐIỀN] | [ĐIỀN] |
-| `back` | 2 | 4 | [ĐIỀN] | [ĐIỀN] | [ĐIỀN] |
-| `small` | 1 | 2 | [ĐIỀN] | [ĐIỀN] | [ĐIỀN] |
-| `crowd` | 1 | 3 | [ĐIỀN] | [ĐIỀN] | [ĐIỀN] |
-| `faces` | 8 | 8 | — | 0 | [ĐIỀN] |
+| `easy` | 5 | 5 | 0 | 0 | 30p |
+| `occluded` | 3 | 5 | 0 | 0 | 30p |
+| `back` | 2 | 4 | 0 | 0 | 30 |
+| `small` | 1 | 2 | 0 | 0 | 30[ |
+| `crowd` | 1 | 3 | 0 | 0 | 15p |
+| `faces` | 8 | 8 | — | 0 | 15p |
 
 Chi tiết số skeleton theo ảnh:
 - `easy`: 000000308257 (1), 000000314154 (1), 000000455536 (1), 000000508269 (1), 000000525227 (1)
