@@ -154,11 +154,11 @@ Nguồn ảnh: COCO 2017.
 
 1. Lỗi bạn mắc nhiều nhất hôm nay, và cách bạn sẽ tránh ở dự án thật:
 
-   ...
+   Bị ngược bên, tránh làm nhanh chú ye hướng đứng và hướng mặt kĩ hơn
 
 2. Một quy tắc bạn đề xuất thêm vào guideline (kèm ảnh ví dụ nếu có):
 
-   ...
+   không có
 
 3. Nhãn của bạn đi vào model ở đâu? Chọn một lỗi bạn đã sửa và nói nó sẽ làm model học sai thế nào (heatmap, trọng số trong loss, hay bước lật ảnh):
 
@@ -167,12 +167,57 @@ Nguồn ảnh: COCO 2017.
 ## 8. Khó khăn và lỗi kỹ thuật
 
 - Em không gặp lỗi CVAT làm mất dữ liệu. `python lab.py export` xuất được cả hai file và script tự kiểm báo ĐẠT (0 lỗi, 3 cảnh báo).
-- Em đã tạo task bonus nhưng không kịp gán xong nên không nộp phần bonus.
-- [ĐIỀN thêm nếu có: CVAT chạy chậm, phải dùng `lab.py lite`, kẹt "Connecting…", ...]
 
 ## Bonus (nếu làm)
 
-Em không làm phần bonus.
+Em tạo task bonus bằng `python lab.py setup --mssv 2A202603311 --ten DuongQuocHuy --bonus` và làm B1, B2.
+
+### B1 — 3 ảnh người khó thêm
+
+| Ảnh | Số skeleton | Số người dưới 60 px | Ca khó nhất |
+|---|---:|---:|---|
+| `000000254060.jpg` | 2 | 0 | Hai người ngồi trên xe máy: người sau bị người lái che gần hết thân và tay, chân của cả hai bị xe che; ảnh bị cháy sáng nên khó thấy khớp |
+| `000000373426.jpg` | 3 | 0 | Ba người chồng lên nhau (cầu thủ đánh bóng, người bắt bóng, trọng tài). Người bắt bóng và trọng tài quay lưng nên phải đổi trái/phải; người bắt bóng che chân cầu thủ |
+| `000000517702.jpg` | 3 | 0 | Hai người đi dưới ô quay lưng: đầu, vai bị ô che hết, phải ước lượng hoặc để `outside`; người phía sau ở mép trên ảnh bị cắt mất đầu và thân trên |
+
+Kết quả `src/check_submission.py` cho `DuongQuocHuy_bonus_persons.zip` (0 lỗi, 0 cảnh báo):
+
+```text
+- File person: DuongQuocHuy_bonus_persons.zip
+  Số ảnh: 3 · số skeleton `person`: 8 · mỗi annotation 51 số
+  Skeleton theo ảnh: 000000254060=2, 000000373426=3, 000000517702=3
+  Cờ v: v=2 84 (62%) · v=1 6 (4%) · v=0 46 (34%)
+  num_keypoints trung bình: 11.2
+- Số [LỖI]: 0 · số [CẢNH BÁO]: 0
+Kết quả: ĐẠT
+```
+
+Tỉ lệ `v = 0` ở bonus (34%) cao hơn bộ chính (24%) vì nhiều khớp bị che hẳn: đầu và vai hai người đi dưới ô, chân hai người trên xe máy, và người ở mép trên ảnh `000000517702.jpg` bị cắt mất đầu và thân trên.
+
+### B2 — 5 ảnh khuôn mặt đen trắng / hồng ngoại
+
+Em gán 13 điểm cho 5 ảnh mặt đen trắng: face_296417, face_300200, face_317330, face_379585, face_507166.
+
+Kết quả `src/check_submission.py` cho `DuongQuocHuy_bonus_faces.zip` (0 lỗi, 0 cảnh báo):
+
+```text
+- File face: DuongQuocHuy_bonus_faces.zip
+  Số ảnh: 5 · số skeleton `face`: 5 · mỗi annotation 39 số
+  Skeleton theo ảnh: face_296417=1, face_300200=1, face_317330=1, face_379585=1, face_507166=1
+  Cờ v: v=2 61 (94%) · v=1 4 (6%) · v=0 0 (0%)
+  num_keypoints trung bình: 13.0
+- Số [LỖI]: 0 · số [CẢNH BÁO]: 0
+Kết quả: ĐẠT
+```
+
+Ảnh không màu khó hơn ở điểm nào? Kính râm trên ảnh hồng ngoại có còn là `v = 1` không?
+
+- Ảnh không màu khó hơn vì mất màu để phân biệt các vùng: tròng mắt, lòng trắng và da gần cùng một tông xám, bóng tối ở hốc mắt dễ nhìn nhầm thành mí, và viền môi không còn khác màu với da nên khóe miệng khó đặt đúng chỗ. Em phải phóng to và dựa vào độ sáng tối, đường nét thay cho màu.
+- Kính râm trên ảnh hồng ngoại không nhất thiết là `v = 1`. Ánh sáng hồng ngoại đi xuyên qua nhiều loại tròng kính râm, nên trên ảnh hồng ngoại thường vẫn thấy mắt phía sau. Nếu thấy rõ mí và khóe mắt thì để `v = 2`; nếu tròng kính vẫn tối, không thấy mắt nhưng ước lượng được theo gọng kính thì vẫn để `v = 1` như quy tắc với ảnh màu.
+
+### B3 — Model so với nhãn của tôi (không tính điểm)
+
+Em không làm B3.
 
 ## 9. Tài liệu tham khảo và công cụ AI đã dùng
 
