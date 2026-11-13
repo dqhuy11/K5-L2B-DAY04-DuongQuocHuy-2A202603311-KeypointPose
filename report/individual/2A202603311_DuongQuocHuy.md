@@ -85,16 +85,6 @@ Tổng hợp số lỗi theo mã:
 
 Em không còn điểm nào phân vân giữa v=1 và v=0
 
-Tổng hợp số lỗi theo mã:
-
-| `lr_swap` | `vis_flag` | `position` | `missing` | `extra` | `ok` |
-|---:|---:|---:|---:|---:|---:|
-| | | | | | |
-
-Điểm còn phân vân giữa `v = 1` và `v = 0` (ghi cả hai lựa chọn và lý do chọn):
-
-...
-
 ## 5. Kiểm file xuất và kết quả tự kiểm (CP4)
 
 Tự kiểm tay trong file JSON:
