@@ -57,8 +57,6 @@ Tổng cộng em gán 19 skeleton `person` trên 12 ảnh và 8 skeleton `face` 
 | Ảnh | Người / mặt | Điểm | Cờ đã chọn | Phân vân giữa | Lý do chọn |
 |---|---|---|---:|---|---|
 |000000393909.jpg |người(người ôm chó) |left_knee |v=2 |v=2 và v=1 |Quần đen, chân duỗi thẳng nên khó thấy chỗ gối gập, ban đầu em định để v = 1. Nhưng đầu gối không bị vật nào che, chỉ tối và khó nhìn, mà khó nhìn không có nghĩa là bị che, nên em chọn v = 2. |
-| | | | | | |
-| | | | | | |
 
 ## 4. Bảng tự review (CP3)
 
@@ -67,10 +65,10 @@ Tổng cộng em gán 19 skeleton `person` trên 12 ảnh và 8 skeleton `face` 
 | Ảnh | Người / mặt | Điểm | Mã lỗi | Ghi chú | Đã sửa? |
 |---|---|---|---|---|---|
 | 000000012552 (crowd) | #1 (cầu thủ đánh bóng) | shoulder, wrist | ok | Script cảnh báo cặp vai, cổ tay ngược phía. Em kiểm lại thấy cầu thủ xoay người vung gậy, hai tay bắt chéo thật trước ngực, nhãn đúng | Không cần sửa |
-| 000000518966 (back) | cả 2 người | 17 điểm | ok | Đã kiểm trái/phải theo người quay lưng, đúng chiều | Không cần sửa |
+| 000000518966 (back) | cả 2 người | các điểm `left_*` / `right_*` | lr_swap | Người quay lưng nhưng mẫu skeleton dựng theo người quay mặt nên `left_*` nằm sai sang bên phải ảnh; em phát hiện và đổi sang bên trái ảnh ngay khi gán. Khi review kiểm lại đã đúng chiều | Đã sửa (khi gán) |
 | 000000508269 (easy) | #1 | knee, ankle | ok | Script cảnh báo cặp gối, cổ chân ngược phía. Em kiểm lại thấy trái/phải đúng chiều theo hướng người, nhãn đúng | Không cần sửa |
 | 000000308257 (easy) | #1 | ankle | ok | Script cảnh báo cặp cổ chân ngược phía. Em kiểm lại thấy trái/phải đúng chiều theo hướng người, nhãn đúng | Không cần sửa |
-| 000000043500 (back) | cả 2 người | 17 điểm | ok | Đã kiểm trái/phải theo người quay lưng và cờ các điểm bị che, không có lỗi | Không cần sửa |
+| 000000043500 (back) | cả 2 người | các điểm `left_*` / `right_*` | lr_swap | Người quay lưng, mẫu skeleton đặt `left_*` sai sang bên phải ảnh; em đổi sang bên trái ảnh ngay khi gán. Khi review kiểm lại trái/phải và cờ các điểm bị che đã đúng | Đã sửa (khi gán) |
 | face_405456 (kính râm) | 1 | 13 điểm | ok | 4 điểm mắt sau kính râm đã để `occluded` (v = 1), các điểm còn lại đúng mép | Không cần sửa |
 | face_333134 (tóc che) | 1 | 4 điểm mí mắt | ok | Mắt nhìn xuống dưới, không thấy rõ con ngươi nên khó đặt mí trên/dưới; em kiểm lại vị trí các điểm mí | Không cần sửa |
 | face_415073 (nghiêng) | 1 | điểm mắt | ok | Mắt liếc sang một bên; em kiểm lại vị trí các điểm mắt | Không cần sửa |
@@ -79,7 +77,7 @@ Tổng hợp số lỗi theo mã:
 
 | `lr_swap` | `vis_flag` | `position` | `missing` | `extra` | `ok` |
 |---:|---:|---:|---:|---:|---:|
-| 0 | 0 | 0 | 0 | 0 | 8 |
+| 2 | 0 | 0 | 0 | 0 | 6 |
 
 Điểm còn phân vân giữa `v = 1` và `v = 0` (ghi cả hai lựa chọn và lý do chọn):
 
