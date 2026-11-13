@@ -54,8 +54,6 @@ Tổng cộng em gán 19 skeleton `person` trên 12 ảnh và 8 skeleton `face` 
 
 ## 3. Bảng ca khó (CP1, CP2)
 
-> Em tự điền mục này từ job thật (theo RULES.md, AI không được viết hộ mục 3).
-
 | Ảnh | Người / mặt | Điểm | Cờ đã chọn | Phân vân giữa | Lý do chọn |
 |---|---|---|---:|---|---|
 |000000393909.jpg |người(người ôm chó) |left_knee |v=2 |v=2 và v=1 |Quần đen, chân duỗi thẳng nên khó thấy chỗ gối gập, ban đầu em định để v = 1. Nhưng đầu gối không bị vật nào che, chỉ tối và khó nhìn, mà khó nhìn không có nghĩa là bị che, nên em chọn v = 2. |
@@ -64,20 +62,28 @@ Tổng cộng em gán 19 skeleton `person` trên 12 ảnh và 8 skeleton `face` 
 
 ## 4. Bảng tự review (CP3)
 
-> Em tự điền mục này từ job thật (theo RULES.md, AI không được viết hộ mục 4). Ba dòng đầu là ba ảnh script cảnh báo, em mở lại CVAT kiểm rồi ghi mã lỗi và ghi chú.
-
 Đi từ ảnh cuối về ảnh đầu. 5 ảnh người (ít nhất 2 ảnh `back` hoặc `crowd`) và 3 ảnh mặt.
 
 | Ảnh | Người / mặt | Điểm | Mã lỗi | Ghi chú | Đã sửa? |
 |---|---|---|---|---|---|
-| 000000012552 (crowd) | #1 | shoulder, wrist | | | |
-| 000000508269 (easy) | #1 | knee, ankle | | | |
-| 000000308257 (easy) | #1 | ankle | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
+| 000000012552 (crowd) | #1 (cầu thủ đánh bóng) | shoulder, wrist | ok | Script cảnh báo cặp vai, cổ tay ngược phía. Em kiểm lại thấy cầu thủ xoay người vung gậy, hai tay bắt chéo thật trước ngực, nhãn đúng | Không cần sửa |
+| 000000518966 (back) | cả 2 người | 17 điểm | ok | Đã kiểm trái/phải theo người quay lưng, đúng chiều | Không cần sửa |
+| 000000508269 (easy) | #1 | knee, ankle | ok | Script cảnh báo cặp gối, cổ chân ngược phía. Em kiểm lại thấy trái/phải đúng chiều theo hướng người, nhãn đúng | Không cần sửa |
+| 000000308257 (easy) | #1 | ankle | ok | Script cảnh báo cặp cổ chân ngược phía. Em kiểm lại thấy trái/phải đúng chiều theo hướng người, nhãn đúng | Không cần sửa |
+| 000000043500 (back) | cả 2 người | 17 điểm | ok | Đã kiểm trái/phải theo người quay lưng và cờ các điểm bị che, không có lỗi | Không cần sửa |
+| face_405456 (kính râm) | 1 | 13 điểm | ok | 4 điểm mắt sau kính râm đã để `occluded` (v = 1), các điểm còn lại đúng mép | Không cần sửa |
+| face_333134 (tóc che) | 1 | 4 điểm mí mắt | ok | Mắt nhìn xuống dưới, không thấy rõ con ngươi nên khó đặt mí trên/dưới; em kiểm lại vị trí các điểm mí | Không cần sửa |
+| face_415073 (nghiêng) | 1 | điểm mắt | ok | Mắt liếc sang một bên; em kiểm lại vị trí các điểm mắt | Không cần sửa |
+
+Tổng hợp số lỗi theo mã:
+
+| `lr_swap` | `vis_flag` | `position` | `missing` | `extra` | `ok` |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 0 | 0 | 0 | 0 | 8 |
+
+Điểm còn phân vân giữa `v = 1` và `v = 0` (ghi cả hai lựa chọn và lý do chọn):
+
+Em không còn điểm nào phân vân giữa v=1 và v=0
 
 Tổng hợp số lỗi theo mã:
 
@@ -149,8 +155,6 @@ Các `[CẢNH BÁO]` còn giữ nguyên và lý do:
 Nguồn ảnh: COCO 2017.
 
 ## 7. Tự đánh giá
-
-> Em tự viết mục này (theo RULES.md, AI không được viết hộ mục 7).
 
 1. Lỗi bạn mắc nhiều nhất hôm nay, và cách bạn sẽ tránh ở dự án thật:
 
